@@ -1,0 +1,24 @@
+A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+
+Given a string s, return true if it is a palindrome, or false otherwise.
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+ 
+var isPalindrome = function(s) {
+    s = s.toLowerCase().replace(/[^A-Za-z0-9]/g, '')//Remove all non alpha-numeric chars and spaces
+    
+    let start = 0;//First char index
+    let end = s.length - 1;//Last char index
+    
+    while(start < end){//Work way into the middle of the string
+        if(s[start] !== s[end]) return false;//Compare lower index char with higher index char. If they do not match, return false
+        //If they DO match, start moves up one index 
+        start++;
+        end--;
+    }
+    
+    return true
+};
